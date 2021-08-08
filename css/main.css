@@ -43,7 +43,9 @@ h1   {
 
 .hero {
   background-image: url("../assets/hero.png");
+  height:  664px;
   min-height: 664px;
+  max-height: 664px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -163,14 +165,29 @@ ul.nav-links {
 
     .hero {
       background-image: url("../assets/hero-mobile.png");
-      background-position: bottom 0 left 0;
+      background-position: bottom 0 center;
       background-size: auto 100%;
+    }
+
+    .box {
+      justify-content: space-between;
+      padding:  50px 0;
+      min-height: unset;
     }
 
 
     .box div {
       font-size:  50px;
     }
+
+    .box div:first-child{
+      margin-left:  20px;
+    }
+
+    .box div:last-child{
+      margin-right:  20px;
+    }
+
 
     .box img.vertical {
       transform:  scale(1);
