@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Joey-Maria Tito</title>
+
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script>
+
+    let images=[];
+
+    let items = [
+      {
+        img: 'cuffchrys1.jpg',
+        vertical: false
+      },
+      {
+        img: 'cufflapis1.jpg',
+        vertical: false
+      },
+      {
+        img: 'earringwhtopal1.jpg',
+        vertical: false
+      },
+      {
+        img: 'necklaceclip1.jpg',
+        vertical: true
+      },
+      {
+        img: 'necklacetennis1.jpg',
+        vertical: true
+      },
+      {
+        img: 'ringblkonyx1.jpg',
+        vertical: false
+      },
+      {
+        img: 'ringwhtopal2.jpg',
+        vertical: false
+      }
+    ];
+
+    items.forEach( (i,idx) => {
+      let img=new Image();
+      img.src=`./assets/${i.img}`;
+      img.id=`image-${idx}`;
+      (i.vertical) ? img.className='vertical' : img.className='horizontal';
+      images.push(img);
+    });
+
+  </script>
+
+</head>
+<body>
+  <div class='top-nav'>
+    <h1>Joey-Maria Tito</h1>
+  </div>
+  <div class="main-container">
+
+    <div class='hero'></div>
+
+
+    <div class='box'>
+
+      <div id='prev'>&lt;</div>
+      <span id='image-container'></span>
+      <div id='next'>&gt;</div>
+
+    </div>
+
+    <div class='footer'>
+
+      <div class='name'><h2>Joey-Maria Tito</h2></div>
+
+      <ul class='nav-links'>
+        <li class='header'>SHOP</li>
+        <li>Necklaces</li>
+        <li>Bracelets</li>
+        <li>Rings</li>
+      </ul>
+
+      <ul class='nav-links'>
+        <li class='header'>HELP</li>
+        <li>Ring Size Reference</li>
+        <li>Jewelry Care</li>
+        <li>FAQ</li>
+      </ul>
+
+      <ul class='nav-links'>
+        <li class='header'>ABOUT</li>
+        <li>Contact us</li>
+        <li>Terms &amp; Conditions</li>
+        <li>Privacy &amp; Cookies</li>
+      </ul>
+
+      <ul class='nav-links'>
+        <li class='header'>SOCIAL</li>
+        <li>Instagram</li>
+        <li>Facebook</li>
+      </ul>
+
+    </div>
+
+    <div class="copyright">Copyright &copy; 2021 by Joey-Maria Tito</div>
+
+
+  </div>
+
+<script>
+
+  $(document).ready(function(){
+    $('#image-container').append(images[0]);
+
+    let interval = setInterval(function(){ $('#next').trigger('click'); }, 2000);
+
+
+    $('#prev, #next').click(function(e){
+      if(e.screenX) clearInterval(interval);
+      let dir = $(this).attr('id');
+      let id = parseInt($('#image-container img').attr('id').split('-')[1]);;
+      let itemct =images.length-1;
+      let next = (id===itemct) ? 0 : id+1;
+      let prev = (id===0) ? itemct : id-1;
+      $('#image-container').empty();
+      switch (dir){
+        case 'next':
+          $('#image-container').append(images[next])
+          break;
+        case 'prev':
+          $('#image-container').append(images[prev])
+          break;
+      }
+    })
+  })
+</script>
+
+
+
+</body>
+</html>
+
+
+
