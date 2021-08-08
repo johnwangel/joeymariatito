@@ -162,7 +162,7 @@ ul.nav-links {
     }
 
     .hero {
-      background-position: top 0 left 30%;
+      background-image: url("../assets/hero-mobile.png");
     }
 
 
