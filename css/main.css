@@ -164,6 +164,7 @@ ul.nav-links {
     .hero {
       background-image: url("../assets/hero-mobile.png");
       background-position: bottom 0 left 0;
+      background-size: auto 100%;
     }
 
 
